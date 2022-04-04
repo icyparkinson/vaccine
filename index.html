@@ -13,88 +13,132 @@
 	</head>
 	<body>
         <section id = "main">
-            <h1>What's Next?</h1>
-            <h3>How many doses have you received of a COVID-19 Vaccine?</h3>
-            <button type = button>Zero</button>
-            <button type = button>One</button>
-            <button type = button>Two</button>
-            <button type = button>Three</button>
+            
+            <h1>COVID-19 Vaccine Guide</h1>
+            <section class ="subMain">
 
-                        <!-- IF ZERO DOSES -->
 
-                        <h3>How old is the patient?</h3>
-                        <button type = button> < 5 </button>
-                        <button type = button>5 - 11</button>
-                        <button type = button>12 - 17</button>
-                        <button type = button>18+</button>
+                <!-- DOSES -->
+                <section class="subsub">
+                    <section>
+                        <h3>How many doses has the patient received of a COVID-19 Vaccine?</h3>
+                        <input type = "radio" class = "radioQ" name = "doses" id = "doseZero" value = "0" checked>
+                        <label for = "doseZero">Zero</label>
+                
+                        <input type = "radio" class = "radioQ" name = "doses" id = "doseOne" value = "1">
+                        <label for = "doseOne">One</label>
+                
+                        <input type = "radio" class = "radioQ" name = "doses" id = "doseTwo" value = "2">
+                        <label for = "doseTwo">Two</label>
+                
+                        <input type = "radio" class = "radioQ" name = "doses" id = "doseThree" value = "3">
+                        <label for = "doseThree">Three</label>
+                
+                        <input type = "radio" class = "radioQ" name = "doses" id = "doseFour" value = "4">
+                        <label for = "doseFour">Four</label>
+                    </section>
+                    <section class = "dropSection">
+                        <section class = "vac1Sec hidden">
+                        <label for = "vaccine1">1st dose:</label>
+                        <form id = "vac1Form">
+                            <select name="vaccine1" id = "vac1">
+                                <option value="none" selected>Select One</option>
+                                <option value="jj">J&J</option>
+                                <option value="moderna">Moderna</option>
+                                <option value="pfizer">Pfizer</option>
+                            </select>
+                        </form>
+                        </section>
 
-                                    <!-- YOUNGER THAN 5-->
-                                    <section id = "lessThan5">
-                                        <h4>Unfortunately, the patient is currently not eligible for any vaccine.</h4>
-                                    </section>
 
-                                    <!-- 5 TO 11 -->
-                                    <section id = "Five11">
-                                        <h4>The patient is eligible for 2 doses of Pfizer at the pediatric dose (0.2mL) with 21 days in between.</h4>
-                                    </section>
+                        <section class = "vac2Sec hidden">
+                        <label for = "vaccine2">2nd dose:</label>
+                        <form id = "vac2Form">
+                            <select name="vaccine2" id = "vac2">
+                                <option value="none" selected>Select One</option>
+                                <option value="jj">J&J</option>
+                                <option value="moderna">Moderna</option>
+                                <option value="pfizer">Pfizer</option>
+                            </select>
+                        </form>
+                        </section>
 
-                                    <!-- 12 - 17 -->
-                                    <section id = "Twelve17">
-                                        <h4>The patient is eligible for 2 doses of Pfizer at the adult dose (0.3mL) with 21 days in between.</h4>
-                                    </section>
 
-                                    <!-- 18 AND OLDER -->
-                                    <section id = "eighteenPlus">
-                                        <h4>The patient is eligible for:</h4>
-                                        <ul>
-                                            <li>2 doses of Pfizer at the adult dose (0.3mL) with 21 days in between OR</li>
-                                            <li>2 doses of Moderna (0.5mL) with 28 days in between OR</li>
-                                            <li>1 dose of Johnson & Johnson (0.5mL)</li>
-                                        </ul>
-                                    </section>
+                        <section class = "vac3Sec hidden">
+                        <label for = "vaccine3">3rd dose:</label>
+                        <form id = "vac3Form">
+                            <select name="vaccine3" id = "vac3">
+                                <option value="none" selected>Select One</option>
+                                <option value="jj">J&J</option>
+                                <option value="moderna">Moderna</option>
+                                <option value="pfizer">Pfizer</option>
+                            </select>
+                        </form>
+                        </section>
 
-                        <!-- IF ONE DOSE-->
 
-                        <h3>Which vaccine did the patient receive?</h3>
-                        <button type = button>Pfizer</button>
-                        <button type = button>Moderna</button>
-                        <button type = button>Johnson & Johnson</button>
-                                    
-                                    <!--PFIZER-->
 
-                                    <h3>How old is the patient?</h3>
-                                    <button type = button>5 - 11</button>
-                                    <button type = button>12+</button>
+                        <section class = "vac4Sec hidden">
+                        <label for = "vaccine4">4th dose:</label>
+                        <form id = "vac4Form">
+                            <select name="vaccine4" id = "vac4">
+                                <option value="none" selected>Select One</option>
+                                <option value="jj">J&J</option>
+                                <option value="moderna">Moderna</option>
+                                <option value="pfizer">Pfizer</option>
+                            </select>
+                        </form>
+                        </section>
 
-                                            <!--5 to 11-->
-                                            <h4>The patient should receive a second Pfizer pediatric dose(0.2mL) at least 21 days from the first dose.</h4>
 
-                                            <!--12 AND OLDER-->
-                                            <h4>The patient should receive a second Pfizer adult dose (0.3mL) at least 21 days from the first dose.</h4>
-                                    
-                                    <!--MODERNA-->
-                                    <h4>The patient should receive a second Moderna dose (0.5mL) at least 28 days from the first dose.</h4>
+        
+                      
+                    </section>
+                </section>
 
-                                    <!--JOHNSON & JOHNSON-->
-                                    <h3>Does the patient have one or more of the following conditions?:</h3>
-                                    <ul>
-                                        <li>Undergoing active cancer treatment</li>
-                                        <li>Organ transplant recipient</li>
-                                        <li>Stem cell transplant recipient (within 2 years)</li>
-                                        <li>Taking medication to suppress the immune system</li>
-                                        <li>Moderate to severe immunodeficiency</li>
-                                        <li>Advanced or untreated HIV infection</li>
-                                        <li>Active treatment with high dose corticosteroids</li> <!--Add a hover description here for more details-->
-                                    </ul>
-                                
+                <!-- AGE -->
+                <section class="subsub">
+                    <h3>How old is the patient?</h3>
+                    <input type = "radio" class = "radioQ" name = "age" id = "ageBaby" value = "Baby">  
+                    <label for = "ageBaby">< 5</label>
+
+                    <input type = "radio" class = "radioQ" name = "age" id = "ageKid" value = "Kid">
+                    <label for = "ageKid">5 - 11</label>
+
+                    <input type = "radio" class = "radioQ" name = "age" id = "ageTeen" value = "Teen">
+                    <label for ="ageTeen">12 - 17</label>
+
+                    <input type = "radio" class = "radioQ" name = "age" id = "ageAdult" value = "Adult" checked>
+                    <label for = "ageAdult">18 - 49</label>
+
+                    <input type = "radio" class = "radioQ" name = "age" id = "ageElder" value = "Elder">
+                    <label for = "ageElder">50+</label>
+                </section>
+
+                <!-- IMMUNOCOMPROMISED -->
+                <section class = "subsub">
+                    <h3>Is the patient immunocompromised?</h3>
+                    <input type = "radio" class = "radioQ" name = "immuno" id = "isImmuno" value = "isImmuno">
+                    <label for = "isImmuno">Yes</label>
+
+                    <input type = "radio" class = "radioQ" name = "immuno" id = "notImmuno" value = "notImmuno" checked>
+                    <label for = "notImmuno">No</label>
+                </section>
+            
+                <button type = "button">SUBMIT</button>
+
+
+                
+            </section>
+
+            
+            <section class="answerBox">
+
+            </section>              
 
 
 
             
-
-    
-
-
 
         </section>
 
