@@ -50,6 +50,10 @@
   height: 400px;
 }
 
+#answer{
+  font-size: 2rem;
+}
+
 .hidden{
   display: none;
 }
