@@ -205,8 +205,8 @@ function getShot(){
 
     //ADULT//
 
-    if (ageAdult.checked && (vac1.value==="none") || vac2.value==="none" || vac3.value==="none" || vac4.value==="none" || vac5.value==="none"){
-        answer.innerText = "Please select a vaccine for each received dose above."
+    if (ageAdult.checked && (vac1.value==="none" || vac2.value==="none" || vac3.value==="none" || vac4.value==="none" || vac5.value==="none")){
+        answer.innerText = "Please double check vaccines chosen for each dose."
     }
     
     if (ageAdult.checked && doseZero.checked){
@@ -229,7 +229,7 @@ function getShot(){
         answer.innerText = "This patient is eligible for one booster dose at least 5 months from the 2nd dose. They can choose from the following:\n\n A Pfizer booster (0.3mL) \n A Moderna booster (0.25mL) \n A J&J booster (0.5mL)"
     }
 
-    if (ageAdult.checked && doseTwo.checked && vac1.value==="jj" && vac2.value!="jj"){
+    if (ageAdult.checked && doseTwo.checked && vac1.value==="jj" && (vac2.value==="moderna" || vac2.value==="pfizer")){
         answer.innerHTML = "This patient is fully vaccinated and is currently not eligible for additional doses at this time."
     }
 
@@ -237,8 +237,8 @@ function getShot(){
         answer.innerText = "This patient is eligible for a 2nd booster dose at least 4 months after their 2nd dose. They can choose from the following: \n\n A Pfizer booster (0.3mL) \n A Moderna booster (0.25mL)"
     }
 
-    if (ageAdult.checked && doseThree.checked){
-        answer.innerText = "This patient is fully vaccinated and is currently not elligible for additional doses at this time."
+    if (ageAdult.checked && doseThree.checked && notImmuno.checked){
+        answer.innerText = "This patient is fully vaccinated and is currently not eligible for additional doses at this time."
     }
 
     //ADULT IMMUNOCOMPROMISED//
@@ -259,30 +259,67 @@ function getShot(){
         answer.innerText = "This patient is eligible for a 2nd dose at least 28 days from the 1st dose. They can choose from the following:\n\n A full Pfizer dose (0.3mL)\n A full Moderna dose (0.3mL)"
     }
     
-    if (ageAdult.checked && doseTwo.checked && isImmuno.checked && vac1.value==="pfizer" && vac2.value=="pfizer"){
-        answer.innerText = "This patient should received a 3rd dose of Pfizer at least 28 days from their 2nd dose, followed by a booster dose at least 3 months later."
+    if (ageAdult.checked && doseTwo.checked && isImmuno.checked && vac1.value==="pfizer" && vac2.value==="pfizer"){
+        answer.innerText = "This patient should received a 3rd dose of Pfizer (0.3mL) at least 28 days from their 2nd dose, followed by a booster dose at least 3 months later."
     }
 
-    if (ageAdult.checked && doseTwo.checked && isImmuno.checked && vac1.value==="moderna" && vac2.value=="moderna"){
-        answer.innerText = "This patient should received a 3rd dose of Moderna at least 28 days from their 2nd dose, followed by a booster dose at least 3 months later."
-    }
-
-    if (ageAdult.checked && doseTwo.checked && isImmuno.checked && vac1.value==="jj" & vac2.value==="jj"){
-        answer.innerText = "Are you sure you selected the correct vaccine? An immunocompromised patient should not have received two J&J vaccines as their primary series."
+    if (ageAdult.checked && doseTwo.checked && isImmuno.checked && vac1.value==="moderna" && vac2.value==="moderna"){
+        answer.innerText = "This patient should received a 3rd dose of Moderna (0.5mL) at least 28 days from their 2nd dose, followed by a booster dose at least 3 months later."
     }
 
     if (ageAdult.checked && doseTwo.checked && isImmuno.checked && vac1.value==="jj" & vac2.value==="pfizer"){
-        answer.innerText = "This patient is eligible for a booster dose at least 2 months from their 2nd dose. They can choose from the following:\n\n A full Pfizer dose (0.3mL)\n A booster Moderna dose (0.25mL)\n a full J&J dose (0.5mL)"
+        answer.innerText = "This patient is eligible for a booster dose at least 2 months from their 2nd dose. They can choose from the following:\n\n A full Pfizer dose (0.3mL)\n A booster Moderna dose (0.25mL)\n A full J&J dose (0.5mL)"
     }
 
     if (ageAdult.checked && doseTwo.checked && isImmuno.checked && vac1.value==="jj" & vac2.value==="moderna"){
         answer.innerText = "This patient is eligible for an additional 3rd dose at least 2 months from their 2nd dose. They can choose from the following:\n\n If 2nd dose was a full dose (0.5mL):\n A full Pfizer dose (0.3mL)\n A booster Moderna dose (0.25mL)\n A full J&J dose (0.5mL)\n\n If 2nd dose was a booster dose (0.25mL): \n A full Pfizer dose (0.3mL)\n A full Moderna dose (0.5mL)"
     }
- 
 
+    if (ageAdult.checked && doseThree.checked && isImmuno.checked && (vac1.value==="pfizer" && vac2.value==="pfizer" && vac3.value==="pfizer") || (vac1.value==="moderna" && vac2.value==="moderna" && vac3.value==="moderna")){
+        answer.innerText = "This patient should receive their 1st booster dose at least 3 months after their 3rd dose. They can choose from the following:\n\n A full Pfizer dose (0.3mL)\n A booster Moderna dose (0.25mL)\n A full J&J dose (0.5mL)" 
+    }
+
+    if (ageAdult.checked && doseThree.checked && isImmuno.checked && vac1.value==="jj" && (vac2.value==="moderna" || vac2.value==="pfizer") && vac3.value!="none"){
+        answer.innerText = "This patient is eligible for a 2nd booster dose at least 4 months after their 3rd dose. They can choose from the following:\n\n A full Pfizer dose (0.3mL)\n A booster Moderna dose (0.25mL)" 
+    }
+
+    if (ageAdult.checked && doseFour.checked && isImmuno.checked && vac1.value==="jj" && (vac2.value==="moderna" || vac2.value==="pfizer") && vac3.value!="none" && (vac4.value==="moderna" || vac4.value==="pfizer")){
+        answer.innerText = "This patient is fully vaccinated and is currently not eligible for additional doses at this time."
+    }
     
+    if (ageAdult.checked && doseFour.checked && isImmuno.checked && (vac1.value==="pfizer" || vac1.value==="moderna") && (vac2.value==="pfizer" || vac2.value==="moderna") && (vac3.value==="pfizer" || vac3.value==="moderna") && vac4.value!="none"){
+        answer.innerText = "This patient is eligible for 2nd booster dose at least 4 months after the 1st booster (4th dose). They can choose from the following: \n\n A full Pfizer dose (0.3mL)\n A booster Moderna dose (0.25mL)"
+    }
+    
+    if (ageAdult.checked && doseFive.checked && isImmuno.checked && (vac1.value==="pfizer" || vac1.value==="moderna")){
+        answer.innerText = "This patient is fully vaccinated and is currently not eligible for additional doses at this time."
+    }
+    
+    //ARE YOU SURE?//
+    
+    if (ageAdult.checked && isImmuno.checked && vac1.value==="jj" && vac2.value==="jj" && vac3.value==="jj"){
+        answer.innerText = "This patient has gotten too many J&J vaccines. Are you sure you selected the correct vaccine for each dose?" 
+    }
 
+    if (ageAdult.checked && isImmuno.checked && vac1.value==="jj" && vac2.value==="jj" && vac3.value==="jj" && vac4.value==="jj"){
+        answer.innerText = "This patient has gotten too many J&J vaccines. Are you sure you selected the correct vaccine for each dose?" 
+    }
 
+    if (ageAdult.checked && isImmuno.checked && vac1.value==="jj" & vac2.value==="jj"){
+        answer.innerText = "Are you sure you selected the correct vaccine? An immunocompromised patient should not have received two J&J vaccines as their primary series."
+    }   
+
+    if (ageAdult.checked && doseTwo.checked && isImmuno.checked && vac1.value!="jj" && vac2.value==="jj"){
+        answer.innerText = "Are you sure you selected the correct vaccines? It is unlikely that an immunocompromised patient got J&J for their second dose."
+    }
+
+    if (ageAdult.checked && (doseTwo.checked || doseThree.checked || doseFour.checked || doseFive.checked) && isImmuno.checked && vac1.value==="pfizer" && (vac2.value!="pfizer" || vac3.value!="pfizer")){
+        answer.innerText = "Are you sure you selected the correct vaccine? Immunocompromised patients should get the same vaccine for their first three doses."
+    }
+
+    if (ageAdult.checked && (doseTwo.checked || doseThree.checked || doseFour.checked || doseFive.checked) && isImmuno.checked && vac1.value==="moderna" && (vac2.value!="moderna" || vac3.value!="moderna")){
+        answer.innerText = "Are you sure you selected the correct vaccine? Immunocompromised patients should get the same vaccine for their first three doses."
+    }
 
 
 
